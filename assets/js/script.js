@@ -93,11 +93,12 @@ if (certificationList && certificationToggle) {
 
     if (certificationsExpanded) {
       certificationList.style.maxHeight = `${certificationList.getBoundingClientRect().height}px`;
-      certificationList.offsetHeight;
       certificationsExpanded = false;
       updateCertificationControl();
       requestAnimationFrame(() => {
-        certificationList.style.maxHeight = `${collapsedCertificationHeight()}px`;
+        requestAnimationFrame(() => {
+          certificationList.style.maxHeight = `${collapsedCertificationHeight()}px`;
+        });
       });
     } else {
       certificationsExpanded = true;
